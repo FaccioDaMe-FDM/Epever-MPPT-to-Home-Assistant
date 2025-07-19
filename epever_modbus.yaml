@@ -1,8 +1,10 @@
 ###   Epever All Model   ###     RS485 serial port 
 
+###   serial settings:   115200bps baudrate, 8 data bits, 1 stop bit, no parity, no handshaking .
+
 modbus:
-  - type: rtuovertcp         
-    name: Epever_Elfin
+  - type: tcp         
+    name: Epever_Modbus
     host: 192.178.xxx.xxx   
     port: 23xx          
     delay: 0
