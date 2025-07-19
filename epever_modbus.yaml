@@ -1,0 +1,629 @@
+###   Epever All Model   ###     RS485 serial port 
+
+modbus:
+  - type: rtuovertcp         
+    name: Epever_Elfin
+    host: 192.178.xxx.xxx   
+    port: 23xx          
+    delay: 0
+    message_wait_milliseconds: 1000
+    timeout: 4
+    sensors:
+      
+  # EPEVER A
+      
+      # Battery Soc % 311A
+      - name: Epever_A_Battery_SOC
+        unique_id: Epever_A_Battery_SOC
+        unit_of_measurement: "%"
+        slave: 1
+        address: 12570
+        input_type: input
+        device_class: battery
+        scan_interval: 1
+
+      # Battery Voltage 3104
+      - name: Epever_A_Battery_Voltage
+        unique_id: Epever_A_Battery_Voltage
+        unit_of_measurement: V
+        slave: 1
+        address: 12548
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: voltage
+        scan_interval: 1
+
+        # Input Voltage 3100
+      - name: Epever_A_Input_Voltage
+        unique_id: Epever_A_Input_Voltage
+        unit_of_measurement: V
+        slave: 1
+        address: 12544
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: voltage
+        scan_interval: 1
+
+        # Input Current 3101  
+      - name: Epever_A_Input_Current
+        unique_id: Epever_A_Input_Current
+        unit_of_measurement: A
+        slave: 1
+        address: 12545
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: current
+        scan_interval: 1
+
+        # Input Power 3102
+      - name: Epever_A_Input_Power
+        unique_id: Epever_A_Input_Power
+        unit_of_measurement: W
+        slave: 1
+        address: 12546
+        input_type: input
+        data_type: int32
+        swap: word
+        scale: 0.01
+        precision: 2
+        device_class: power
+        scan_interval: 1
+
+        # Battery Temperature
+      - name: Epever_A_Battery_Temperature
+        unique_id: Epever_A_Battery_Temperature
+        unit_of_measurement: °C
+        slave: 1
+        address: 12560
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: temperature
+        scan_interval: 1
+
+        # Tracer Temperature
+      - name: Epever_A_Tracer_Temperature
+        unique_id: Epever_A_Tracer_Temperature
+        unit_of_measurement: °C
+        slave: 1
+        address: 12561
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: temperature
+        scan_interval: 1
+
+        # Kwa prodotti Oggi 330C
+      - name: Epever_A_KW_Oggi
+        unique_id: Epever_A_KW_Oggi
+        unit_of_measurement: kWh
+        slave: 1
+        address: 13068
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: energy
+        scan_interval: 60
+
+        # Kwa Mese 330E
+      - name: Epever_A_KW_Mese
+        unique_id: Epever_A_KW_Mese
+        unit_of_measurement: kWh
+        slave: 1
+        address: 13070
+        input_type: input
+        data_type: uint32
+        swap: word
+        scale: 0.01
+        precision: 1
+        device_class: energy
+        scan_interval: 600
+
+        # Kwa Anno 3310
+      - name: Epever_A_KW_Anno
+        unique_id: Epever_A_KW_Anno
+        unit_of_measurement: kWh
+        slave: 1
+        address: 13072
+        input_type: input
+        data_type: uint32
+        swap: word
+        scale: 0.01
+        precision: 1
+        device_class: energy
+        scan_interval: 600
+
+        # Massima tensione batteria 3302
+      - name: Epever_A_Massima_Tensione_Batteria
+        unique_id: Epever_A_Massima_Tensione_Batteria
+        unit_of_measurement: V
+        slave: 1
+        address: 13058
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: voltage
+        scan_interval: 1
+
+        # Minima tensione batteria 3303
+      - name: Epever_A_Minima_Tensione_Batteria
+        unique_id: Epever_A_Minima_Tensione_Batteria
+        unit_of_measurement: V
+        slave: 1
+        address: 13059
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: voltage
+        scan_interval: 1
+
+        # Corrente Batteria 331B
+      - name: Epever_A_Corrente_Batteria
+        unique_id: Epever_A_Corrente_Batteria
+        unit_of_measurement: A
+        slave: 1
+        address: 13083
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: current
+        scan_interval: 1
+
+        # Battery status 0x003200
+      - name: Epever_A_Battery_Status
+        unique_id: Epever_A_Battery_Status
+        slave: 1
+        address: 12800
+        input_type: input
+        scale: 1
+        precision: 0
+
+        # Charging Status 0x003201
+      - name: Epever_A_Charging_Status 
+        unique_id: Epever_A_Charging_Status
+        slave: 1
+        address: 12801
+        input_type: input
+        scale: 1
+        precision: 0
+
+  # Epever B
+
+      # Battery Soc % 311A
+      - name: Epever_B_Battery_SOC
+        unique_id: Epever_B_Battery_SOC
+        unit_of_measurement: "%"
+        slave: 2
+        address: 12570
+        input_type: input
+        device_class: battery
+        scan_interval: 1
+
+        # Battery Voltage 3104
+      - name: Epever_B_Battery_Voltage
+        unique_id: Epever_B_Battery_Voltage
+        unit_of_measurement: V
+        slave: 2
+        address: 12548
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: voltage
+        scan_interval: 1
+
+        # Input Voltage 3100
+      - name: Epever_B_Input_Voltage
+        unique_id: Epever_B_Input_Voltage
+        unit_of_measurement: V
+        slave: 2
+        address: 12544
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: voltage
+        scan_interval: 1
+
+        # Input Current 3101  
+      - name: Epever_B_Input_Current
+        unique_id: Epever_B_Input_Current
+        unit_of_measurement: A
+        slave: 2
+        address: 12545
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: current
+        scan_interval: 1
+
+        # Input Power 3102
+      - name: Epever_B_Input_Power
+        unique_id: Epever_B_Input_Power
+        unit_of_measurement: W
+        slave: 2
+        address: 12546
+        input_type: input
+        data_type: int32
+        swap: word
+        scale: 0.01
+        precision: 2
+        device_class: power
+        scan_interval: 1
+
+        # Battery Temperature
+      - name: Epever_B_Battery_Temperature
+        unique_id: Epever_B_Battery_Temperature
+        unit_of_measurement: °C
+        slave: 2
+        address: 12560
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: temperature
+        scan_interval: 1
+
+        # Mppt Temperature
+      - name: Epever_B_Tracer_Temperature
+        unique_id: Epever_B_Tracer_Temperature
+        unit_of_measurement: °C
+        slave: 2
+        address: 12561
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: temperature
+        scan_interval: 1
+
+        # Kwa prodotti Oggi 330C
+      - name: Epever_B_KW_Oggi
+        unique_id: Epever_B_KW_Oggi
+        unit_of_measurement: kWh
+        slave: 2
+        address: 13068
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: energy
+        scan_interval: 1
+
+        # Kwa Mese 330E
+      - name: Epever_B_KW_Mese
+        unique_id: Epever_B_KW_Mese
+        unit_of_measurement: kWh
+        slave: 2
+        address: 13070
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: energy
+        scan_interval: 600
+
+        # Kwa Anno 3310
+      - name: Epever_B_KW_Anno
+        unique_id: Epever_B_KW_Anno
+        unit_of_measurement: kWh
+        slave: 2
+        address: 13072
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: energy
+        scan_interval: 600
+
+        # Massima tensione batteria 3302
+      - name: Epever_B_Massima_Tensione_Batteria
+        unique_id: Epever_B_Massima_Tensione_Batteria
+        unit_of_measurement: V
+        slave: 2
+        address: 13058
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: voltage
+        scan_interval: 1
+
+        # Minima tensione batteria 3303
+      - name: Epever_B_Minima_Tensione_Batteria
+        unique_id: Epever_B_Minima_Tensione_Batteria
+        unit_of_measurement: V
+        slave: 2
+        address: 13059
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: voltage
+        scan_interval: 1
+
+        # Corrente Batteria 331B
+      - name: Epever_B_Corrente_Batteria
+        unique_id: Epever_B_Corrente_Batteria
+        unit_of_measurement: A
+        slave: 2
+        address: 13083
+        input_type: input
+        scale: 0.01
+        precision: 2
+        device_class: current
+        scan_interval: 1
+
+        # Battery status 0x003200
+      - name: Epever_B_Battery_Status
+        unique_id: Epever_B_Battery_Status
+        slave: 2
+        address: 12800
+        input_type: input
+        scale: 1
+        precision: 0
+
+        # Charging Status 0x003201
+      - name: Epever_B_Charging_Status 
+        unique_id: Epever_B_Charging_Status
+        slave: 2
+        address: 12801
+        input_type: input
+        scale: 1
+        precision: 0
+
+# Switch id 1
+
+    switches:
+      - name: "Epever A SET BOOST TIME ON 0 min OFF 120 min"
+        address: 36972
+        slave: 1
+        write_type: holding
+        command_on: 0    
+        command_off: 120
+
+      - name: "Epever A RESET PRODUZIONE"
+        address: 20
+        slave: 1
+        write_type: holding
+        command_on: 0x01    
+        command_off: 0x0  
+
+      - name: "Epever A ATTIVAZIONE LOAD"
+        address: 36925
+        slave: 1
+        write_type: holdings
+        command_on: 0x01
+        command_off: 0x0
+
+      - name: "Epever A MODIFICA TEMPERATURA BATTERIA A 5°C SGANCIO"
+        address: 36887
+        slave: 1
+        write_type: holdings
+        command_on: 300          ###   TEMP = 3    ###
+        command_off: 7000        ###   TEMP = 70   ###
+
+    # Switch id 2
+
+      - name: "Epever B SET BOOST TIME ON 0 min OFF 120 min"
+        address: 36972
+        slave: 2
+        write_type: holding
+        command_on: 0    
+        command_off: 120 
+
+      - name: "Epever B RESET PRODUZIONE"
+        address: 20
+        slave: 2
+        write_type: holding
+        command_on: 0x01    
+        command_off: 0x0
+
+      - name: "Epever B ATTIVAZIONE LOAD"
+        address: 36925
+        slave: 2
+        write_type: holdings
+        command_on: 0x01
+        command_off: 0x0
+
+      - name: "Epever B MODIFICA TEMPERATURA BATTERIA A 5°C SGANCIO"
+        address: 36887
+        slave: 2
+        write_type: holdings
+        command_on: 300          ###   TEMP = 3    ###
+        command_off: 7000        ###   TEMP = 70   ###
+
+
+###   stati   ###
+
+template:
+  - sensor:
+      - name: "Epever_A_status_battery"
+        unique_id: Epever_A_status_battery
+        state: >-
+          {% set mapper =  {
+              '0' : 'NORMAL',
+              '1' : 'NOT CHARGING',
+              '2' : 'NONE',
+              '3' : 'NONE',
+              '4' : 'NONE',
+              '5' : 'NONE',
+              '6' : 'NONE',
+              '7' : 'NONE' } %}
+          {% set state =  states.sensor.Epever_A_Battery_Status.state %}
+          {{ mapper[state] if state in mapper else 'Unknown' }}
+        icon: >
+          {% if is_state("sensor.Epever_A_status_battery", "NORMAL") %}
+            mdi:battery
+          {% else %}
+            mdi:battery-alert
+          {% endif %}
+
+  - sensor:
+      - name: "Epever_A_status_charging"
+        unique_id: Epever_A_status_charging
+        state: >-
+          {% set mapper =  {
+              '0' : 'NORMAL',
+              '1' : 'NOT CHARGE',
+              '2' : 'none',
+              '3' : 'none',
+              '4' : 'none',
+              '5' : 'FLOAT',
+              '6' : 'none',
+              '7' : 'none',
+              '9' : 'BOOST CHARGHING',
+              '35' : 'OVER VOLTAGE',
+              '10' : 'NONE',
+              '11' : 'NONE' } %}
+          {% set state =  states.sensor.Epever_A_Charging_Status.state %}
+          {{ mapper[state] if state in mapper else 'Unknown' }}
+        icon: >
+          {% if is_state("sensor.Epever_A_status_charging", "BOOST CHARGHING") %}
+            mdi:power-plug-battery
+          {% else %}
+            mdi:power-plug-battery-outline
+          {% endif %}
+
+  - sensor:
+      - name: "Epever_B_status_battery"
+        unique_id: Epever_B_status_battery
+        state: >-
+          {% set mapper =  {
+              '0' : 'NORMAL',
+              '1' : 'NOT CHARGING',
+              '2' : 'NONE',
+              '3' : 'NONE',
+              '4' : 'NONE',
+              '5' : 'NONE',
+              '6' : 'NONE',
+              '7' : 'NONE' } %}
+          {% set state =  states.sensor.Epever_B_Battery_Status.state %}
+          {{ mapper[state] if state in mapper else 'Unknown' }}
+        icon: >
+          {% if is_state("sensor.Epever_B_status_battery", "NORMAL") %}
+            mdi:battery
+          {% else %}
+            mdi:battery-alert
+          {% endif %}
+
+  - sensor:
+      - name: "Epever_B_status_charging"
+        unique_id: Epever_B_status_charging
+        state: >-
+          {% set mapper =  {
+              '0' : 'NORMAL',
+              '1' : 'NOT CHARGE',
+              '2' : 'none',
+              '3' : 'none',
+              '4' : 'none',
+              '5' : 'FLOAT',
+              '6' : 'none',
+              '7' : 'none',
+              '9' : 'BOOST CHARGHING',
+              '35' : 'OVER VOLTAGE',
+              '10' : 'NONE',
+              '11' : 'NONE' } %}
+          {% set state =  states.sensor.Epever_B_Charging_Status.state %}
+          {{ mapper[state] if state in mapper else 'Unknown' }}
+        icon: >
+          {% if is_state("sensor.Epever_B_status_charging", "BOOST CHARGHING") %}
+            mdi:power-plug-battery
+          {% else %}
+            mdi:power-plug-battery-outline
+          {% endif %}
+
+
+  - sensor:
+
+      - name: epever_a_power_to_battery
+        unique_id: epever_a_power_to_battery
+        state_class: measurement
+        unit_of_measurement: 'W'
+        state: "{{ '{:.2f}'.format
+        (states('sensor.epever_a_battery_voltage') |float(0) * 
+        states('sensor.epever_a_corrente_batteria') |float(0)) }}"
+
+  - sensor:
+
+      - name: epever_b_power_to_battery
+        unique_id: epever_b_power_to_battery
+        state_class: measurement
+        unit_of_measurement: 'W'
+        state: "{{ '{:.2f}'.format
+        (states('sensor.epever_b_battery_voltage') |float(0) * 
+        states('sensor.epever_b_corrente_batteria') |float(0)) }}"
+
+  - sensor:
+
+      - name: epever_tot_power_to_battery
+        unique_id: epever_tot_power_to_battery
+        state_class: measurement
+        unit_of_measurement: 'W'
+        state: "{{ '{:.2f}'.format
+        (states('sensor.epever_a_power_to_battery') |float(0) + 
+        states('sensor.epever_b_power_to_battery') |float(0)) }}"
+
+
+###   Conversione DC to DC - Efficenza Epever Mppt   ###
+
+  - sensor:
+
+      - name: efficenza_epever_a
+        unique_id: efficenza_epever_a
+        state_class: measurement
+        unit_of_measurement: '%'
+        state: "{{ '{:.2f}'.format
+        (states('sensor.epever_a_power_to_battery') |float(0) / 
+        states('sensor.epever_a_input_power') |float(0) * 100) }}"
+
+  - sensor:
+
+      - name: efficenza_epever_b
+        unique_id: efficenza_epever_b
+        state_class: measurement
+        unit_of_measurement: '%'
+        state: "{{ '{:.2f}'.format
+        (states('sensor.epever_b_power_to_battery') |float(0) / 
+        states('sensor.epever_b_input_power') |float(0) * 100) }}"
+
+  - sensor:
+
+      - name: efficenza_epever_tot
+        unique_id: efficenza_epever_tot
+        state_class: measurement
+        unit_of_measurement: '%'
+        state: "{{ '{:.2f}'.format
+        (states('sensor.epever_tot_power_to_battery') |float(0) / 
+        states('sensor.epever_tot_power_input') |float(0) * 100) }}"
+        
+
+
+
+
+####   other sensor   ###
+
+sensor:
+
+# Potenza Istantanea
+- platform: min_max
+  name: Epever Tot Power Input
+  unique_id: "Epever Tot Power Input"
+  type: sum
+  entity_ids:
+    - sensor.Epever_A_input_power
+    - sensor.Epever_B_input_power
+
+# Epever Produzione Totale Oggi
+- platform: min_max
+  name: Epever Produzione Totale Oggi
+  unique_id: "Epever Produzione Totale Oggi"
+  type: sum
+  entity_ids:
+    - sensor.Epever_A_kw_oggi
+    - sensor.Epever_B_kw_oggi
+
+# Epever Ampere Totali Out Epever
+- platform: min_max
+  name: Epever Ampere Totali Out Epever
+  unique_id: "Epever Ampere Totali Out Epever"
+  type: sum
+  entity_ids:
+    - sensor.Epever_A_Corrente_Batteria
+    - sensor.Epever_B_Corrente_Batteria
+
+
